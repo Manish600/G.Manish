@@ -1,0 +1,108 @@
+#include<stdio.h>
+#include<stdlib.h>
+void pusha(int);
+void pushb(int);
+int popa();
+int popb();
+void enqueue();
+void dequeue();
+void display();
+void create();
+int stacka[100], stackb[100];
+int topa= -1, topb= -1;
+int count = 0;
+
+int main()
+{
+    int ch;
+    printf("QUEUE USING STACKS IMPLEMENTATION");
+    printf("\n1.Enqueue");
+    printf("\n2.Dequeue");
+    printf("\n3.Display");
+    printf("\n4.Exit");
+    printf("\n");
+    create();
+    while (1)
+    {
+        printf("Enter your choice : ");
+        scanf("%d", &ch);
+        switch (ch)
+        {
+            case 1:
+                enqueue();
+                break;
+            case 2:
+                dequeue();
+                break;
+            case 3:
+                display();
+                break;
+            case 4:
+                exit(0);
+            default:
+                printf("\nInvalid Choice\n");
+        }}}
+        
+void create()
+{
+    topa= topb= -1;
+}
+void pusha(int element)
+{
+    stacka[++topa] = element; 
+}
+int popa()
+{
+    return(stacka[topa--]); 
+}
+
+void pushb(int element)
+{
+    stackb[topb++] = element; 
+}
+int popb()
+{
+    return(stackb[topb--]); 
+}
+
+void enqueue()
+{
+    int data, i;
+    printf("Enter the data : ");
+    scanf("%d", &data);
+    pusha(data); 
+    count++;
+}
+
+void dequeue()
+{
+    int i;
+    for (i = 0;i <= count;i++)
+    {
+        pushb(popa()); 
+         popb(); 
+        count--;
+    }
+    for (i = 0;i <= count;i++)
+    {
+        pusha(popb()); 
+    }
+}
+
+void display()
+{
+    int i;
+    if(topa== -1)
+    {
+        printf("EMPTY QUEUE\n");
+    }
+    else
+    {
+        printf("QUEUE ELEMENTS : ");
+        for (i = 0;i <= topa;i++)
+        {
+            printf(" %d ", stacka[i]);
+        }
+        printf("\n");
+    }
+}
