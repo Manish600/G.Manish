@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<string.h>
+int top=-1;
+char stack[2O];
+void main()
+{
+char str[20];
+int l,i;
+printf(“Enter the string to reverse:”);
+scanf(“%s”,str);
+len=strlen(str);
+for(i=0;i<l;i++)
+{
+push(str[i],l);
+}
+printf(“The reverse of string %s is \t”, str);
+for(i=0;i<l;i++)
+{
+pop();
+}
+getch();
+}
+
+void push(char c)
+{
+if top==19
+printf("stack is full");
+else
+stack[top]=c;
+top=top+1;
+}
+
+void pop()
+{
+if top==-1
+printf("stack is empty") 
+else
+printf(“%c”, stack[top]);
+top–;
+}
